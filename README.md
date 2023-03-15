@@ -24,6 +24,54 @@ Developed by:
 RegisterNumber:  
 */
 ```
+```
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Preprocessing input values
+print("Values of x:")
+x=np.array(eval(input()))
+print("Values of y:")
+y=np.array(eval(input()))
+
+# Finding mean
+x_mean=np.mean(x)
+y_mean=np.mean(y)
+
+numerator=0 # for slope
+denominator=0 # for slope
+
+# to find sum of(xi-x') & (yi-y') & (xi-x')^2
+
+for i in range(len(x)):
+  numerator+=(x[i]-x_mean)*(y[i]-y_mean)
+  denominator+=(x[i]-x_mean)**2 
+
+#calculate slope
+
+m=numerator/denominator
+
+#calculate intercept
+
+b=y_mean-m*x_mean
+
+print("Slope:",m)
+print("Intercept",b)
+
+#line equation
+
+y_predicted=m*x+b
+print(y_predicted)
+# value of the equation when value of x is given
+y_expected=m*3+b
+
+print(y_expected)
+
+# to plot graph
+plt.scatter(x,y)
+plt.plot(x,y_predicted,color='black')
+plt.show
+```
 
 ## Output:
 ![best fit line](sam.png)
